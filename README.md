@@ -10,6 +10,6 @@ PHP-fpm版本7.4.7
 ### 注意事项
 PHP编译安装时间较长，为防止连接意外中断，建议在screen中执行脚本    
 Nginx 用户、组为www   
-Nginx 支持使用Systemctl [] nginx.service管理  
-PHP支持使用Service php-fpm []管理
+Nginx 支持使用Systemctl start\stop\restart\status nginx.service管理  
+PHP支持使用Service php-fpm start\stop\restart管理
 
