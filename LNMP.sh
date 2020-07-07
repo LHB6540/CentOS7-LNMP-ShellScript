@@ -35,9 +35,8 @@ make&&make install
 #----------------------------------------------------------------------------
 echo 'Install completed,register service and configure environment variables 安装完成,开始注册服务及配置环境变量'
 cd /lib/systemd/system
-wget https://raw.githubusercontent.com/LHB6540/CentOS7-LNMP-ShellScript/master/nginx
 rm -f nginx.service
-mv nginx nginx.service
+wget http://47.107.149.229:8080/nginx.service
 systemctl daemon-reload
 systemctl start nginx.service
 #----------------------------------------------------------------------------
@@ -87,13 +86,13 @@ then
 cp /usr/local/nginx1.18/conf/nginx.conf /usr/local/nginx1.18/conf/nginx.conf.back
 rm -f /usr/local/nginx1.18/conf/nginx.conf
 cd /usr/local/nginx1.18/conf
-wget https://raw.githubusercontent.com/LHB6540/CentOS7-LNMP-ShellScript/master/configOfnginx
-mv configOfnginx nginx.conf
+wget http://47.107.149.229:8080/nginx.conf
 cd /usr/local/nginx1.18/html
-wget https://raw.githubusercontent.com/LHB6540/CentOS7-LNMP-ShellScript/master/index.php
+echo '<?php phpinfo(); ?>' > index.php
 /usr/local/nginx1.18/sbin/nginx -s reload
 echo '请重新访问页面，您将看到php信息'
 fi
+exit 0
  
 
 
